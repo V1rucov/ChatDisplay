@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages Viewer</title>
+</head>
+<body>
+    <h1>Messages Viewer</h1>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <a href="/?page=1">First</a>
+        {% if page > 1 %}
+            <a href="/?page={{ page - 1 }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        {% if page < total_pages %}
+            <a href="/?page={{ page + 1 }}">Next</a>
+        {% endif %}
+        <a href="/?page={{ total_pages }}">Last</a>
+    </div>
+</body>
+</html>
